@@ -2,13 +2,17 @@ export function parseInfo(parseItem) {
     let parseString = parseItem.selector;
     let qs = [];
     let ans = [];
-
+    [qs, ans] = split(parseString, qs, ans);
+    let ansL = [];
+    for (let i of ans) {
+        ansL.push(i.length);
+    }
     let responseObj = {
         questions : qs,
         answers : ans,
+        answerLengths : ansL,
     }
-
-
+    
     return responseObj;
 }
 
@@ -22,12 +26,13 @@ function split(selector, qs, ans) {
         let newString = trimString(array[i]);
         
         if (i% 2  == 0){
-            qs.push(alert(array[i].split("<  >".pop())));
+            qs.push(newString);
         }
         else{
-            ans.push(array[i]);
+            ans.push(newString);
         }
-      }
+    }
+    return [qs, ans];
 }
 
 function trimString(editString) {
@@ -40,4 +45,10 @@ function trimString(editString) {
             arrra.push(i);
         }
     }
+    for (let i = arrla.length - 1; i >= 0; i++) {
+        let lindex = arrla[i];
+        let rindex = arrra[i];
+        editString = editString.substring(0, lindex) + editString.substring(rindex + 1);
+    }
+    return editString;
 }
