@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap");
+
+.startPanel {
+  background-color: #acd2ff;
+  height: 350px;
+  width: 600px;
+  border-radius: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.startPanel > h2 {
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
+  font-size: 50px;
+}
