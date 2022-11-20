@@ -9,15 +9,16 @@ import ResultsPage from "./components/ResultsPage";
 function App() {
   const [textObj, setTextObj] = useState();
   useEffect(() => {
-    axios.post("http://localhost:3001/getYTLinks")
-    .then((res) =>{
-      setTextObj(res.data);
-      console.log(res.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-  }, [])
+    axios
+      .get("http://localhost:3001/getQuizData")
+      .then((res) => {
+        setTextObj(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const [testObjects, setTestObjects] = useState([
     {
