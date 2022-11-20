@@ -6,16 +6,16 @@ import { useEffect, useState } from "react";
 function App() {
   const [textObj, setTextObj] = useState();
   useEffect(() => {
-    axios.get("http://localhost:3001/getQuizData")
+    axios.post("http://localhost:3001/getYTLinks")
     .then((res) =>{
       setTextObj(res.data);
+      console.log(res.data);
     })
     .catch((err) => {
       console.log(err);
     })
   }, [])
 
-  console.log(textObj);
   return (
     <div>
       <StartPanel />
