@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap");
+
+.scorePanel {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.scoreCard > h1 {
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
+  font-size: 90px;
+}
+
+.scorePanel > h2 {
+  width: 350px;
+  margin-left: 30px;
+}

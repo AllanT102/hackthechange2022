@@ -15,26 +15,21 @@
   align-items: center;
 }
 
-.arrowsPanel > button {
-  height: 50px;
-  width: 50px;
+.arrowsPanel > img {
+  height: 40px;
+  width: 25px;
   margin-left: 20px;
   margin-right: 20px;
-  border-radius: 50px;
-  border: none;
-  background-color: darkgrey;
 }
 
-.arrowsPanel > button:hover {
+.arrowsPanel > img:hover {
   cursor: pointer;
-  background-color: lightgrey;
-  transition: 0.2s;
 }
 
 .questionsPanel {
   background-color: #acd2ff;
-  height: 250px;
-  width: 450px;
+  height: 200px;
+  width: 400px;
   border-radius: 15px;
   text-align: center;
   display: flex;
@@ -46,14 +41,15 @@
 .questionsPanel > h2 {
   font-size: 20px;
   font-family: "Rubik", sans-serif;
+  width: 400px;
 }
 
 .answer {
   background-color: #e3efff;
   border: none;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 500px;
-  height: 50px;
+  height: 75px;
   border-radius: 15px;
   text-align: center;
   display: flex;

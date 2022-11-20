@@ -7,40 +7,22 @@ import axios from "axios";
 import ResultsPage from "./components/ResultsPage";
 
 function App() {
-  const [textObj, setTextObj] = useState();
-  useEffect(() => {
+  const [testObjects, setTestObjects] = useState([]);
+  const [canRenderTest, setCanRenderTest] = useState(false);
+  const score = useRef(0);
+
+  function handleStart() {
     axios
       .get("http://localhost:3001/getQuizData")
       .then((res) => {
-        setTextObj(res.data);
-        console.log(res.data);
+        setTestObjects(res.data.tests);
+        console.log(res.data.tests);
+        setCanRenderTest(true);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
-
-  const [testObjects, setTestObjects] = useState([
-    {
-      qNum: 0,
-      question: "how did joe break his ligma?",
-      answers: ["A", "B", "C", "D"],
-      correctA: 1,
-    },
-    {
-      qNum: 1,
-      question: "how did yo mama break her suqma?",
-      answers: ["0", "1", "2", "3"],
-      correctA: 3,
-    },
-    {
-      qNum: 2,
-      question: "deez nuts?",
-      answers: ["N", "U", "T", "S"],
-      correctA: 0,
-    },
-  ]);
-  const score = useRef(0);
+  }
 
   function handleAnswer() {
     score.current += 1;
@@ -49,13 +31,18 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route
-          path="/test"
-          element={
-            <TestPanel testObjects={testObjects} handleAnswer={handleAnswer} />
-          }
-        />
+        <Route path="/" element={<HomePage handleStart={handleStart} />} />
+        {canRenderTest && (
+          <Route
+            path="/test"
+            element={
+              <TestPanel
+                testObjects={testObjects}
+                handleAnswer={handleAnswer}
+              />
+            }
+          />
+        )}
         <Route
           path="/results"
           element={<ResultsPage testObjects={testObjects} score={score} />}
