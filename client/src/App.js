@@ -8,12 +8,14 @@ import ResultsPage from "./components/ResultsPage";
 
 function App() {
   const [textObj, setTextObj] = useState();
+  const [wrongQuestions, setWrongQuestions] = useState([]);
+  const [correctQuestions, setCorrectQuestions] = useState([]);
+
   useEffect(() => {
     axios
       .get("http://localhost:3001/getQuizData")
       .then((res) => {
         setTextObj(res.data);
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -53,12 +55,14 @@ function App() {
         <Route
           path="/test"
           element={
-            <TestPanel testObjects={testObjects} handleAnswer={handleAnswer} />
+            <TestPanel testObjects={testObjects} handleAnswer={handleAnswer} 
+            setWrongQuestions={setWrongQuestions} wrongQuestions={wrongQuestions}
+            setCorrectQuestions={setCorrectQuestions} correctQuestions={correctQuestions}/>
           }
         />
         <Route
           path="/results"
-          element={<ResultsPage testObjects={testObjects} score={score} />}
+          element={<ResultsPage testObjects={testObjects} score={score} wrongQuestions={wrongQuestions} correctQuestions={correctQuestions}/>}
         />
       </Routes>
     </div>

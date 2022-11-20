@@ -6,10 +6,11 @@ export default function HomePage() {
   return (
     <div className="homePage">
       <div className="homePage--Logo">
-        <h1>Project Name</h1>
+        <h1>test.iq</h1>
       </div>
       <div className="homePage--Intro">
-        <h2>Test yourself on any Quizlet with just the URL!</h2>
+        <h2>Don't want to pay for subscriptions?</h2>
+        <h1 className="smaller-text">Study for <b>FREE</b> with just a simple quizlet link</h1>
         <StartPanel />
       </div>
     </div>

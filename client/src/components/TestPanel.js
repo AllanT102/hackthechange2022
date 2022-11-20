@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "../styles/testPanelStyles.css";
 import { useNavigate } from "react-router-dom";
 
-export default function TestPanel({ testObjects, handleAnswer }) {
+export default function TestPanel({ testObjects, handleAnswer, setWrongQuestions, wrongQuestions, correctQuestions, setCorrectQuestions }) {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [answered, setAnswered] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -40,9 +40,11 @@ export default function TestPanel({ testObjects, handleAnswer }) {
   function revealAnswer(event) {
     if (event.target.id == testObjects[questionNumber].correctA) {
       event.target.style.background = "green";
+      setCorrectQuestions([...correctQuestions, testObjects[questionNumber].question]);
       handleAnswer();
     } else {
       event.target.style.background = "red";
+      setWrongQuestions([...wrongQuestions, testObjects[questionNumber].question]);
     }
     questionsRef.current.children[
       testObjects[questionNumber].correctA
