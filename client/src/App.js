@@ -1,23 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import HomePage from "./components/homePage";
 import { Routes, Route } from "react-router-dom";
 import TestPanel from "./components/TestPanel";
 import "./App.css";
-import StartPanel from "./components/startPanel";
-import axios from "axios"
-import { useEffect, useState } from "react";
+import axios from "axios";
+import ResultsPage from "./components/ResultsPage";
 
 function App() {
   const [textObj, setTextObj] = useState();
   useEffect(() => {
-    axios.get("http://localhost:3001/getQuizData")
-    .then((res) =>{
-      setTextObj(res.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-  }, [])
+    axios
+      .get("http://localhost:3001/getQuizData")
+      .then((res) => {
+        setTextObj(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   console.log(textObj);
 
@@ -37,16 +37,30 @@ function App() {
     {
       qNum: 2,
       question: "deez nuts?",
-      answers: ["N", "U", "a", "S"],
+      answers: ["N", "U", "T", "S"],
       correctA: 0,
     },
   ]);
+  const score = useRef(0);
+
+  function handleAnswer() {
+    score.current += 1;
+  }
 
   return (
     <div>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/test" element={<TestPanel testObjects={testObjects} />} />
+        <Route
+          path="/test"
+          element={
+            <TestPanel testObjects={testObjects} handleAnswer={handleAnswer} />
+          }
+        />
+        <Route
+          path="/results"
+          element={<ResultsPage testObjects={testObjects} score={score} />}
+        />
       </Routes>
     </div>
   );

@@ -18,6 +18,17 @@
 .arrowsPanel > button {
   height: 50px;
   width: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 50px;
+  border: none;
+  background-color: darkgrey;
+}
+
+.arrowsPanel > button:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+  transition: 0.2s;
 }
 
 .questionsPanel {
@@ -39,6 +50,7 @@
 
 .answer {
   background-color: #e3efff;
+  border: none;
   margin-top: 20px;
   width: 500px;
   height: 50px;
@@ -51,6 +63,4 @@
 
 .answer:hover {
   cursor: pointer;
-  background-color: #eaf2ff;
-  transition: 0.2s;
 }
