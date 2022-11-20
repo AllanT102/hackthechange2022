@@ -4,8 +4,8 @@ const http = require("https");
 const toMCTest = require('../toTests');
 const parse = require('../parse');
 
-router.get("/", async (request, response) => {
-    const url = "https://quizlet.com/236765100/cpsc-310-midterm-flash-cards/"
+router.post("/", async (request, response) => {
+    const url = request.body.text;
     const options = {
         "method": "GET",
         "hostname": "api.webscrapingapi.com",
@@ -16,7 +16,6 @@ router.get("/", async (request, response) => {
     
     const req = http.request(options, function (res) {
     const chunks = [];
-    let result = "";
     
     res.on("data", function (chunk) {
         chunks.push(chunk);

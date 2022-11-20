@@ -41,21 +41,11 @@
 }
 
 .keywordButtons {
-  display: inline-block;
-  width: 37.5vw;
-  height: 37.5vw;
+  display: flex;
+  justify-content: center;
+  width: 40vw;
 }
 
-.keywordButtons > button {
-  width: 60px;
-  height: 30px;
-  border-radius: 10px;
-  margin-left: 5px;
-  margin-top: 5px;
-  margin-right: 5px;
-  border: none;
-  background-color: white;
-}
 
 .keywordButtons > button:hover {
   cursor: pointer;
@@ -75,14 +65,13 @@
 }
 
 .bestWordsPanel {
-  width: 37.5vw;
+  width: 40vw;
   text-align: center;
   height: 70vh;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .bestWordsPanel > h2 {
@@ -91,20 +80,113 @@
 
 .bestWords {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  width: 37.5vw;
-  height: 37.5vw;
+  margin-bottom: 20%;
 }
 
+.keywordButtons > button {
+  width: 90px;
+  height: 70px;
+  /* font-weight: bold; */
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  /* border: solid red 2px; */
+  background-color: white;
+  padding: 5px;
+  border: none;
+  /* animation: 1s infinite alternate enlarge; */
+}
+
+/* @keyframes enlarge {
+  from {
+    transform: scaleX(1.01);
+    transform: scaleY(1.01);
+  }
+
+  to {
+    transform: scaleX(0.99);
+    transform: scaleY(.99);
+  }
+} */
+
 .correctWord {
-  width: 60px;
-  height: 30px;
+  /* font-weight: bold; */
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 60px;
   border-radius: 10px;
   margin-left: 5px;
   margin-top: 5px;
   margin-right: 5px;
   border: none;
   background-color: white;
-  border: green;
+  padding: 5px;
+  /* border: solid green 2px; */
+}
+
+.descText {
+  font-size: 15px;
+  font-weight: 150;
+  margin-top: 2%;
+  margin-bottom: 10%;
+}
+
+.replayDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  margin-top: 15px;
+}
+
+.form > input {
+  height: 10px;
+  width: 300px;
+  border-radius: 15px;
+  border: none;
+  padding: 15px;
+}
+
+.form > button {
+  background-color: #dceefe;
+  border: none;
+  border-radius: 15px;
+  width: 150px;
+  height: 35px;
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: "Rubik", sans-serif;
+}
+
+.form > button:hover {
+  cursor: pointer;
+  background-color: #e6f2ff;
+  transition: 0.2s;
+}
+
+.study-again {
+  font-size: 15px;
+  font-weight: 150;
+}
+
+.replaybtndiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.form--input {
+  margin-top: 20px;
 }

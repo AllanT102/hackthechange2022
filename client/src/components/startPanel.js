@@ -2,32 +2,28 @@ import { useState, useEffect } from "react";
 import "../styles/startPanelStyles.css";
 import { useNavigate } from "react-router-dom";
 
-export default function StartPanel({ handleStart }) {
+export default function StartPanel({ handleStart, setUserURL }) {
   const navigate = useNavigate();
-  const [url, setUrl] = useState("");
 
   function handleChange(event) {
-    setUrl(event.target.value);
+    setUserURL(event.target.value);
   }
 
-  let disabled = url == 0;
 
   return (
     <div className="startPanel">
       <div className="form">
         <input
-          type="text"
+          type="url"
           placeholder="Enter a Quizlet URL..."
           className="form--input"
           name="url"
-          value={url}
           onChange={handleChange}
         />
         <button
           className="submit"
-          disabled={disabled}
-          onClick={() => {
-            handleStart();
+          onClick={(e) => {
+            handleStart(e.target.value);
             navigate("/test");
           }}
         >

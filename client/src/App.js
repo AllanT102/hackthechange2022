@@ -13,14 +13,20 @@ function App() {
   
   const [testObjects, setTestObjects] = useState([]);
   const [canRenderTest, setCanRenderTest] = useState(false);
+  const [userURL, setUserURL] = useState("");
   const score = useRef(0);
 
   function handleStart() {
-    axios
-      .get("http://localhost:3001/getQuizData")
+    let data = new FormData();
+    data.append("text", userURL)
+    axios({
+      method: "post",
+      url: "http://localhost:3001/getQuizData",
+      data: data,
+      headers: { "Content-Type": "application/json" }
+    })
       .then((res) => {
         setTestObjects(res.data.tests);
-        console.log(res.data.tests);
         setCanRenderTest(true);
       })
       .catch((err) => {
@@ -32,10 +38,14 @@ function App() {
     score.current += 1;
   }
 
+  function resetScore() {
+    score.current = 0;
+  }
+
   return (
     <div>
       <Routes>
-        <Route path="/" element={<HomePage handleStart={handleStart} />} />
+        <Route path="/" element={<HomePage handleStart={handleStart} setUserURL={setUserURL}/>} />
         {canRenderTest && (
         <Route
           path="/test"
@@ -49,7 +59,15 @@ function App() {
 
         <Route
           path="/results"
-          element={<ResultsPage testObjects={testObjects} score={score} wrongQuestions={wrongQuestions} correctQuestions={correctQuestions}/>}
+          element={<ResultsPage testObjects={testObjects} score={score} 
+          wrongQuestions={wrongQuestions} correctQuestions={correctQuestions} 
+          setUserURL={setUserURL} handleStart={handleStart}
+          setWrongQuestions={setWrongQuestions}
+          setCorrectQuestions={setCorrectQuestions}
+          setTestObjects={setTestObjects}
+          resetScore={resetScore}
+          setCanRenderTest={setCanRenderTest}
+          />}
         />
       </Routes>
     </div>
