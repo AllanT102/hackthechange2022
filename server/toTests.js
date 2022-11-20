@@ -52,5 +52,8 @@ export function toMCTest(qaObject) {
 
         testQs.push(testObject);
     }
-    return testQs;
+    let testQObject = {
+        tests : testQs,
+    }
+    return testQObject;
 }
