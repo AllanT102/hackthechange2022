@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "../styles/startPanelStyles.css";
 import { useNavigate } from "react-router-dom";
 
-export default function StartPanel() {
+export default function StartPanel({ handleStart }) {
   const navigate = useNavigate();
   const [url, setUrl] = useState("");
 
@@ -27,6 +27,7 @@ export default function StartPanel() {
           className="submit"
           disabled={disabled}
           onClick={() => {
+            handleStart();
             navigate("/test");
           }}
         >

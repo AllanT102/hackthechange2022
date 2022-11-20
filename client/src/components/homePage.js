@@ -2,7 +2,7 @@ import React from "react";
 import StartPanel from "./startPanel";
 import "../styles/homePageStyles.css";
 
-export default function HomePage() {
+export default function HomePage({ handleStart }) {
   return (
     <div className="homePage">
       <div className="homePage--Logo">
