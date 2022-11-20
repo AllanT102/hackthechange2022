@@ -1,4 +1,4 @@
-export function toMCTest(qaObject) {
+function toMCTest(qaObject) {
     let qs = qaObject.questions;
     let ans = qaObject.answers;
     let ansL= qaObject.answerLengths;
@@ -52,5 +52,10 @@ export function toMCTest(qaObject) {
 
         testQs.push(testObject);
     }
-    return testQs;
+    let testQObject = {
+        tests : testQs,
+    }
+    return testQObject;
 }
+
+module.exports = toMCTest;
