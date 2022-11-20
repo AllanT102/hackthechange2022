@@ -42,9 +42,7 @@ function App() {
           element={
             <TestPanel testObjects={testObjects} handleAnswer={handleAnswer} 
             setWrongQuestions={setWrongQuestions} wrongQuestions={wrongQuestions}
-            setCorrectQuestions={setCorrectQuestions} correctQuestions={correctQuestions}
-             testObjects={testObjects}
-              handleAnswer={handleAnswer}/>
+            setCorrectQuestions={setCorrectQuestions} correctQuestions={correctQuestions}/>
           }
         />
         )}
