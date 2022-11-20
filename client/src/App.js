@@ -14,8 +14,6 @@ function App() {
       console.log(err);
     })
   }, [])
-
-  console.log(textObj);
   return (
     <div>
       <StartPanel />

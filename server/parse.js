@@ -1,4 +1,4 @@
-export function parseInfo(parseItem) {
+function parseInfo(parseItem) {
     let parseString = parseItem.selector;
     let qs = [];
     let ans = [];
@@ -52,3 +52,5 @@ function trimString(editString) {
     }
     return editString;
 }
+
+module.exports = parseInfo;
