@@ -22,6 +22,8 @@ router.get("/", async (request, response) => {
     
     res.on("end", function () {
         const body = Buffer.concat(chunks);
+        console.log(body);
+        console.log(body.toString());
         response.send(body.toString());
     });
     });

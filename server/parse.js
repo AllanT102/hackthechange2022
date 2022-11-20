@@ -10,7 +10,7 @@ export function parseInfo(parseItem) {
     let responseObj = {
         questions : qs,
         answers : ans,
-        answerLengths : ansL,
+        answerLengths : ansL
     }
     
     return responseObj;
@@ -22,14 +22,14 @@ function split(selector, qs, ans) {
     let str = selector;
     array = str.split("<span class=\"TermText notranslate lang-en\">");
     
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 1; i < array.length; i++) {
         let newString = trimString(array[i]);
         
         if (i% 2  == 0){
-            qs.push(newString);
+            ans.push(newString);
         }
         else{
-            ans.push(newString);
+            qs.push(newString);
         }
     }
     return [qs, ans];
@@ -45,7 +45,7 @@ function trimString(editString) {
             arrra.push(i);
         }
     }
-    for (let i = arrla.length - 1; i >= 0; i++) {
+    for (let i = arrla.length - 1; i >= 0; i--) {
         let lindex = arrla[i];
         let rindex = arrra[i];
         editString = editString.substring(0, lindex) + editString.substring(rindex + 1);
