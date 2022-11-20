@@ -7,9 +7,9 @@ router.post("/", async (req, res) => {
         key: "AIzaSyClWMLMCQwYaLsKizhC049Z0CF8FSwO6KA",
         part: "snippet",
         maxResults: "1",
-        q: "point estimate",
+        q: req.body.text
     }).then((response) => {
-        res.send(`https://www.youtube.com/watch?v=${response.data.items[0].id.videoId}`);
+        res.send(`${response.data.items[0].id.videoId}`);
     }).catch(err => console.log(err));
 })
 
