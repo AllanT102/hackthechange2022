@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap");
 
+.resultsPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .scorePanel {
   display: flex;
   flex-direction: row;
@@ -18,4 +24,87 @@
 .scorePanel > h2 {
   width: 350px;
   margin-left: 30px;
+}
+
+.videoPanel {
+  width: 37.5vw;
+  text-align: center;
+  height: 70vh;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.videoPanel > h2 {
+  padding: 10px;
+}
+
+.keywordButtons {
+  display: inline-block;
+  width: 37.5vw;
+  height: 37.5vw;
+}
+
+.keywordButtons > button {
+  width: 60px;
+  height: 30px;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  border: none;
+  background-color: white;
+}
+
+.keywordButtons > button:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+  transition: 0.2s;
+}
+
+.wordsPanel {
+  width: 75vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+  background-color: #acd2ff;
+  margin-top: 10px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.bestWordsPanel {
+  width: 37.5vw;
+  text-align: center;
+  height: 70vh;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bestWordsPanel > h2 {
+  padding: 10px;
+}
+
+.bestWords {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 37.5vw;
+  height: 37.5vw;
+}
+
+.correctWord {
+  width: 60px;
+  height: 30px;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  border: none;
+  background-color: white;
+  border: green;
 }
