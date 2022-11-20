@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const http = require("https");
+const toMCTest = require('../toTests');
+const parse = require('../parse');
 
 router.get("/", async (request, response) => {
-    const url = "https://quizlet.com/ca/639971093/dsci100-quiz-2-flash-cards/"
+    const url = "https://quizlet.com/236765100/cpsc-310-midterm-flash-cards/"
     const options = {
         "method": "GET",
         "hostname": "api.webscrapingapi.com",
@@ -22,10 +24,10 @@ router.get("/", async (request, response) => {
     
     res.on("end", function () {
         const body = Buffer.concat(chunks);
-        console.log(body);
-        console.log(body.toString());
-        response.send(body.toString());
-    });
+        let qa = parse(JSON.parse(body.toString()));
+        let testQObject = toMCTest(qa);
+        response.send(testQObject);
+        });
     });
     
     req.end();
