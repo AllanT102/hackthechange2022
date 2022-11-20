@@ -1,5 +1,8 @@
+import { useState, useEffect } from "react";
+import HomePage from "./components/homePage";
+import { Routes, Route } from "react-router-dom";
+import TestPanel from "./components/TestPanel";
 import "./App.css";
-<<<<<<< Updated upstream
 import StartPanel from "./components/startPanel";
 import axios from "axios"
 import { useEffect, useState } from "react";
@@ -17,13 +20,7 @@ function App() {
   }, [])
 
   console.log(textObj);
-=======
-import { useState, useEffect } from "react";
-import HomePage from "./components/homePage";
-import { Routes, Route } from "react-router-dom";
-import TestPanel from "./components/TestPanel";
 
-function App() {
   const [testObjects, setTestObjects] = useState([
     {
       qNum: 0,
@@ -40,12 +37,11 @@ function App() {
     {
       qNum: 2,
       question: "deez nuts?",
-      answers: ["N", "U", "T", "S"],
+      answers: ["N", "U", "a", "S"],
       correctA: 0,
     },
   ]);
 
->>>>>>> Stashed changes
   return (
     <div>
       <Routes>
