@@ -4,17 +4,18 @@ import axios from "axios"
 import { useEffect, useState } from "react";
 
 function App() {
-  const [text, setText] = useState();
+  const [textObj, setTextObj] = useState();
   useEffect(() => {
     axios.get("http://localhost:3001/getQuizData")
     .then((res) =>{
-      setText(res.data);
+      setTextObj(res.data);
     })
     .catch((err) => {
       console.log(err);
     })
   }, [])
 
+  console.log(textObj);
   return (
     <div>
       <StartPanel />
